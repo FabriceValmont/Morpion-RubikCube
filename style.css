@@ -1,0 +1,33 @@
+#board {
+	display: flex;
+	flex-wrap: wrap;
+	width: 300px;
+	height: 300px;
+	border: 1px solid black;
+}
+
+.cell {
+	box-sizing: border-box;
+	width: 100px;
+	height: 100px;
+	border: 1px solid black;
+	font-size: 50px;
+	text-align: center;
+	line-height: 100px;
+	cursor: pointer;
+}
+
+.cell:hover {
+	background-color: #e6e6e6;
+}
+
+#reset {
+	margin-top: 10px;
+	font-size: 16px;
+	padding: 5px 10px;
+}
+
+#message {
+	margin-top: 10px;
+	font-size: 24px;
+}
