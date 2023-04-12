@@ -30,9 +30,6 @@ const init = () => {
   board3 = ["","","","","","","","",""];
   board4 = ["","","","","","","","",""];
   board5 = ["","","","","","","","",""];
-	// cells.forEach((cell, index) => {
-	// 	cell.innerText = "";
-	// });
 }
 
 const handleClick = (event) => {
@@ -89,6 +86,8 @@ const changePlayer = () => {
   }
 }
 
+// Fonction qui permet de faire bouger les éléments du tableau vers les autres tableau
+
 const changeLineRight = (verifRightMove) => {
 
     verifRightMove.forEach((position) => {
@@ -128,6 +127,7 @@ const changeLineRight = (verifRightMove) => {
       Array.from(cells)[b].innerText = memoryGameEnd1
       Array.from(cells)[c].innerText = memoryGameEnd2
 
+      checkWin()
       changePlayer()
   })
 }
@@ -171,6 +171,7 @@ const changeLineLeft = (verifLeftMove) => {
     Array.from(cells)[b].innerText = memoryGameEnd1
     Array.from(cells)[c].innerText = memoryGameEnd2
 
+    checkWin()
     changePlayer()
 })
 }
@@ -214,6 +215,7 @@ const changeLineUp = (verifUpMove) => {
     Array.from(cells)[b].innerText = memoryGameEnd1
     Array.from(cells)[c].innerText = memoryGameEnd2
     
+    checkWin()
     changePlayer()
   })
 }
@@ -257,6 +259,7 @@ const changeLineDown = (verifDownMove) => {
   Array.from(cells)[b].innerText = memoryGameEnd1
   Array.from(cells)[c].innerText = memoryGameEnd2
 
+  checkWin()
   changePlayer()
 })
 }
@@ -552,6 +555,89 @@ const checkWin = () => {
           return;
     }
   });
+}
+
+let timer;
+let timeInitial1 = 61
+let timeInitial2 = 61
+let timerPlayer1 = document.getElementById("timerPlayer1")
+let timerPlayer2 = document.getElementById("timerPlayer2")
+let startTimer = document.getElementById("startTimer")
+
+const timeScreenPlayer1 = () => {
+  timerPlayer1.innerHTML = timeInitial1 + "s"
+}
+
+const timeScreenPlayer2 = () => {
+  timerPlayer2.innerHTML = timeInitial2 + "s"
+}
+
+const updateTime = () => {
+  if (currentPlayer == "X") {
+    timeInitial1--;
+    timeScreenPlayer1();
+    if (timeInitial1 == 0) {
+      finishTime();
+    }
+  } else {
+    timeInitial2--;
+    timeScreenPlayer2();
+    if (timeInitial2 == 0) {
+      finishTime();
+    }
+  }
+}
+
+
+startTimer.addEventListener("click", () => {
+  launchTimer = true
+  if(launchTimer){
+    timer = setInterval(updateTime, 1000);
+  }
+})
+
+
+const finishTime = () => {
+  
+  if (currentPlayer == "X" && timeInitial1 == 0)
+  {
+  clearInterval(timer);
+  gameOver = true;
+  message.innerText = `Le joueur O a gagné !`;
+  
+    buttonRightUpBlock = true
+    buttonRightMiddleBlock = true
+    buttonRightDownBlock = true
+    buttonLeftUpBlock = true
+    buttonLeftMiddleBlock = true
+    buttonLeftDownBlock = true
+    buttonUpRightBlock = true
+    buttonMiddleRightBlock = true
+    buttonDownRightBlock = true
+    buttonUpLeftBlock = true
+    buttonMiddleLeftBlock = true
+    buttonDownLeftBlock = true
+  
+  } else if (currentPlayer == "O" && timeInitial2 == 0)
+    {
+      clearInterval(timer);
+      gameOver = true;
+      message.innerText = `Le joueur X a gagné !`;
+      
+        buttonRightUpBlock = true
+        buttonRightMiddleBlock = true
+        buttonRightDownBlock = true
+        buttonLeftUpBlock = true
+        buttonLeftMiddleBlock = true
+        buttonLeftDownBlock = true
+        buttonUpRightBlock = true
+        buttonMiddleRightBlock = true
+        buttonDownRightBlock = true
+        buttonUpLeftBlock = true
+        buttonMiddleLeftBlock = true
+        buttonDownLeftBlock = true
+      
+  }
 }
 
 init()

@@ -11,8 +11,16 @@
 
     <h1>Morpion Cube</h1>
 
+    <div id="buttonReload">
+    <button id="startTimer">Lancer le timer</button>
+    <button id="reload"><a href="jeuPrincipal.html">Rejouer</a></button>
+    <button id="reloadMenu"><a href="menuPrincipal.html">Revenir au menu</a></button>
+    </div>
+
     <p id="message"></p>
     <p id="titleBoardPrincipale">Face Principale</p>
+
+    
 
     <div id="buttonUp">
         <div id = "arrowUpLeft">
@@ -27,7 +35,10 @@
     </div>
 
     <div id="game">
-        
+
+        <p id="joueur1">Joueur 1 (X)</p>
+        <p id="timerPlayer1"></p>
+
         <div>
             <div id = "arrowLeftUp">
                 <button id="buttonLeftUp">Gauche</button>
@@ -38,7 +49,10 @@
             <div id = "arrowLeftDown">
                 <button id="buttonLeftDown">Gauche</button>
             </div>
+            
         </div>
+
+        
 
         <div id="board">
             <div class= "cell" ></div>
@@ -63,6 +77,10 @@
                 <button id="buttonRightDown">Droite</button>
             </div>
         </div>
+
+        <p id="timerPlayer2"></p>
+        <p id="joueur2">Joueur 2 (O)</p>
+
     </div>
 
     <div id="buttonDown">
@@ -146,7 +164,8 @@
             <div class= "cell5" ></div>
         </div>
     </div>
-        
+    
+    <script src="menuScript.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
