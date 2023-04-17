@@ -4,37 +4,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="menuStyle.css">
+    <link href="/distStyle/menuStyle.css" rel="stylesheet">
     <title>Morpion Cube</title>
 </head>
-<body>
+<body class=" w-full h-screen bg-no-repeat bg-contain bg-center text-center dark:bg-slate-900 pt-[4rem]"
+style="background-image: url(Image/Fond_menu_morpion.jpg);">
 
-    <h1>Menu</h1>
+<div>
+    <h1 class="text-[28px] sm:text-[72px] font-sans font-bold pt-10 sm:pt-0 sm:pb-[2rem] pb-5 text-[white] ">Morpion-Cube</h1>
     
-    <div id="menu">
-        
-        <div id="list">
-            
-            <button id="jouer"> 
-            <a href="jeuPrincipal.html">Jouer</a>
-            </button>
-            <div id="choice">
-                <p>Timer</p> <input type="checkbox" id="choiceTime">
-                <p>Mode Mémoire</p> <input type="checkbox" id="">
-            </div>
+    <div class="font-['Arial_Black'] flex-wrap space-y-5 text-[white] 
+    border-box h-48 w-48 mr-auto ml-auto" id="menu">
+        <div class="border-4 border-[#E708FF] hover:bg-[#E708FF]" id="list">
+            <a class="text-[20px] sm:text-[24px] " href="jeuPrincipal.html">
+                <button class="">Jouer</button></a>
         </div>
-        <div id="list">
-            <button id="multijoueur"><a href="#">Multijoueur</a></button>
+        <div class="border-4 border-[#E708FF] hover:bg-[#E708FF]" id="list">
+            <a class="text-[20px] sm:text-[24px]" href="#"><button>Multijoueur</button></a>
         </div>
-        <div id="list">
-            <button id="options"><a href="#">Options</a></button>
+        <div class="border-4 border-[#E708FF] hover:bg-[#E708FF]" id="list">
+            <a class="text-[20px] sm:text-[24px]" href="#"><button>Options</button></a>
         </div>
 
-        <div id="ruleOfGame">
-            <p>Règle du jeu</p>
-        </div>
-        <p>ici</p>
+        
     </div>
+
+    <div class="text-orange-600 font-['Arial'] border-box h-[24rem] sm:h-[16rem] w-[24rem] sm:w-[56rem] mr-auto ml-auto space-y-5 bg-white opacity-80 font-bold pt-5" id="ruleOfGame">
+        <p class="text-[20px] underline ">Règle du jeu</p>
+        <p>Il s'agit d'un jeu avec les règles du Morpion avec la particularité du Rubik's Cube.<br>
+            Pour gagner les joueurs doivent aligner trois symboles identiques sur une ligne horizontale, verticale ou diagonale sur la face principale du cube.</p>
+        <p>Le joueur à deux choix : placer un symbole ou tourner une des lignes du cube.<br>
+            Si toutes les faces du Cube sont remplies, les joueurs continue à tourner les lignes jusqu'à avoir un vainqueur.</p>
+    </div>
+    
+</div>
 
     <script src="menuScript.js"></script>
     <script src="script.js"></script>
